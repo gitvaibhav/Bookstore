@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Beans.Kind">
+	<class name="Kind" table="kind_tb">
+		<id name="kID" type="integer">
+			<generator class="identity"/>
+		</id>
+		
+		<property name="kName"></property>
+		<property name="kDes"></property>
+		<!-- 这里设置inverse值为false是想让对应关系中多的一方来维护关系 -->
+		<set name="kBook" inverse="false">
+		<!--设定类别与图书之间的映射关系：一对多 -->
+			<key column="bID"></key>
+			<one-to-many class="Beans.Book.Book"></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

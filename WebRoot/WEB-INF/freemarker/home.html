@@ -1,0 +1,61 @@
+<html>
+	<head>
+		<title>book Store</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css">
+	</head>
+	<#--添加struts标签库--> 
+	<#assign s=JspTaglibs["/WEB-INF/struts-tags.tld"]>
+	<body bgcolor="#cceeff">
+
+		<div class="header">
+			<center>
+				<img src="images/logo.jpg" width="70%" />
+			</center>
+		</div>
+		<#include "nav.html">
+		<div class="container">
+
+			<div class="left-side">
+			</div>
+
+			<div class="content">
+				<div class="container">
+				<#if style??><#--style存在则根据 style的值来显示相关的页面-->
+					<#if style==1>
+						<#--style=1表示显示的是用户注册页面的信息,注意该：值是有nav.html 中设定的，有index.class输出到该页面-->
+						<#include "reg.html">
+					<#elseif style=0>
+						<div class="left-side">
+						<#--导入图书分类列表--> 
+						<#include "kind_list.html">
+					</div>
+					<#--left-side->
+					<div class="content">
+						<#--导入图书列表--> 
+						<#include "book_list.html">
+					</div>
+					</#if>	
+				<#else><#--style变量不存在默认显示主页面的模板-->
+					<div class="left-side">
+						<#--导入图书分类列表--> 
+						<#include "kind_list.html">
+					</div>
+					<#--left-side->
+					<div class="content">
+						<#--导入图书列表--> 
+						<#include "book_list.html">
+					</div>
+				</#if>
+				</div><#--container-->
+				<#--container-->
+			</div>
+
+			<div class="right-side">
+			</div>
+
+		</div>
+	</body>
+
+	<#include "copyright.html">
+
+</html>

@@ -1,0 +1,53 @@
+<#--到航栏-->
+<div class="native">
+	<div class="native-left"></div>
+	
+		<div class="native-content">
+				<table >
+					<tr>
+						<#if user??><#--用户已经登录-->
+						<td colspan="2">
+							 ${user}&nbsp&nbsp
+						</td>
+						<td colspan="2">
+							<a href="">注销&nbsp&nbsp</a>
+						</td>
+						<#else><#--用户还未登录-->
+						<td colspan="2">
+							游客&nbsp&nbsp
+						</td>
+						<td colspan="2">
+							<a href="">登录&nbsp&nbsp</a>
+						</td>
+						</#if>
+						<td colspan="2">
+							<a href="">主页&nbsp&nbsp</a>
+						</td>
+
+						<td colspan="2">
+							<a href="">购物车&nbsp&nbsp</a>
+						</td>
+						<td colspan="2">
+							<a href="">历史订单&nbsp&nbsp</a>
+						</td>
+						<td colspan="2">
+							<a href="">新书&nbsp&nbsp</a>
+						</td>
+						<td colspan="2">
+							<a href="">畅销书&nbsp&nbsp</a>
+						</td>
+						<td colspan="2"><#--此处style=1表示需要index返回的是注册页面而不是主页-->
+							<a href="index.action?style=1">注册&nbsp&nbsp</a>
+						</td>
+						<td colspan="2">
+							<a href="">时间&nbsp&nbsp</a>
+						</td>
+						<#--导入用户登录页面模板-->
+						<#include "login.html">
+					</tr>
+				</table>
+				
+		</div><#--native content-->
+		
+		<div class="native-right"></div>
+</div>

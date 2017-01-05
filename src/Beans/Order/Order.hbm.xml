@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Beans.Order">
+	<class name="Order" table="order_tb">
+		<id name="oID">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="oPay"></property>
+		<property name="oSend"></property>
+		<property name="oDate"></property>
+		<!-- 将订单与下单的用户关联起来 -->
+		<many-to-one name="oUser" column="uId" class="Beans.User.User"></many-to-one>
+		<!-- 这里设置inverse值为false是想让对应关系中多的一方来维护关系 -->
+		<set name="oItem" inverse="false">
+		<!--订单与条目的对应关系是一对多的映射关系-->
+			<key column="oID"></key>
+			<one-to-many class="Beans.Item.Item"></one-to-many>
+		</set>
+	</class>
+</hibernate-mapping>

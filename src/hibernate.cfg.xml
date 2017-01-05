@@ -1,0 +1,31 @@
+
+<!DOCTYPE hibernate-configuration PUBLIC
+"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+	<session-factory name="bookstore">
+	<!-- 驱动类 -->
+		<property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+		<!-- 指定数据库url -->
+		<property name="hibernate.connection.url">jdbc:mysql://localhost:3306/bookstore</property>
+		<!-- 数据库访问的用户名和密码 -->
+		<property name="hibernate.connection.username">root</property>
+		<property name="hibernate.connection.password">111</property>
+		
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+		<!-- 
+		<property name="hibernate.hbm2ddl.auto">create</property>
+		-->
+		<!-- 设置该属性是使得在控制台下输出数据库操作的语句 -->
+		<property name="show_sql">true</property>
+		<!-- 让事务自动提交 -->
+		<property name="connection.autocommit">true</property>
+		<!-- mapping all hbm.xml files -->
+		<mapping resource="Beans/User/User.hbm.xml"></mapping>
+		<mapping resource="Beans/Book/Book.hbm.xml"/>
+		<mapping resource="Beans/Kind/Kind.hbm.xml"/>
+		<mapping resource="Beans/Item/Item.hbm.xml"/>
+		<mapping resource="Beans/Order/Order.hbm.xml"/>
+		
+	</session-factory>
+</hibernate-configuration>

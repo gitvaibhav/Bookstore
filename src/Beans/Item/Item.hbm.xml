@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Beans.Item">
+	<class name="Item" table="item_tb">
+		<id name="id"><generator class="identity"></generator> </id>
+		<property name="iCost"></property>
+		<property name="iNum"></property>
+		<!-- 这里设置inverse值为false是想让对应关系中多的一方来维护关系 -->
+		<set name="iBook" inverse="false">
+			<key column="id"></key>
+			<!-- 创建外键关联 ，条目和书是一对多对应关系-->
+			<one-to-many class="Beans.Book.Book"/>
+		</set>
+		<!--条目和订单是多对一关系  -->
+		<many-to-one name="iOrder" column="oID" class="Beans.Order.Order" ></many-to-one>
+	</class>
+	
+</hibernate-mapping>

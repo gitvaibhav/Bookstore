@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC 
+"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="Beans.Book">
+	<class name="Book" table="book_tb">
+		<id name="bID" type="integer">
+			<generator class="identity"></generator>
+		</id>
+		
+		<property name="bName"></property>
+		<property name="bPrice"></property>
+		<property name="bDes"></property>
+		<property name="bAuth"></property>
+		<property name="bEditor"></property>
+		<property name="bPage"></property>
+		<property name="bPubDate"></property>
+		<!-- 外键关联映射 -->
+		<!-- 书和类型之间是多对一关系 -->
+		<many-to-one name="bKind" column="kID" class="Beans.Kind.Kind" ></many-to-one>
+		<!-- 书和条目之间是多对一关系 -->
+		<many-to-one name="bItem" column="iId" class="Beans.Item.Item"></many-to-one>
+	</class>
+</hibernate-mapping>

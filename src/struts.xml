@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts PUBLIC
+        "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN"
+        "http://struts.apache.org/dtds/struts-2.0.dtd">
+<struts>
+	<package name="Action" extends="struts-default">
+	<!-- 采用index.action的目的是使系统能够在起始的home页面也能够采用freemarker显示进行显示输出，而不是一个另一个
+		与home.html一模一样的jsp页面，节省资源。 -->
+		<action name="index" class="Action.index">
+			<result name="success" type="freemarker">/WEB-INF/freemarker/home.html</result>
+			<result name="error" type="freemarker">/WEB-INF/freemarker/</result>
+			<result name="input" type="freemarker">/WEB-INF/freemarker/</result>
+		</action>
+		<!-- 处理用户登录 -->
+		<action name="login" class="Action.Login">
+			<result name="success" type="freemarker">/WEB-INF/freemarker/home.html</result>
+			<result name="error" type="freemarker">/WEB-INF/freemarker/error.html</result>
+			<result name="input">/WEB-INF/freemarker/</result>
+		</action>
+		
+		<!-- 用户注册的action -->
+		<action name="RegAction" class="Action.RegAction">
+			<result name="success" type="freemarker">/WEB-INF/freemarker/home.html</result>
+			<result name="error" type="freemarker">/WEB-INF/freemarker/home.html</result>
+			<result name="input" type="freemarker">/WEB-INF/freemarker/home.html</result>
+		</action>
+	</package>
+</struts>

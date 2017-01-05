@@ -1,0 +1,12 @@
+<#--该模板是为用户登录提供的，用户可以通过该页面来登录系统，享受更多的功能和服务 该页面的业务将会提交给LoginAction 来 处理
+--> 
+
+<form action="login.action" method="post">
+<td>
+	用户名<#--注意：textfield的name属性值必须与绑定的User中的相应属性名想对应否则将无法绑定数据--> 
+	<input name="userName" type="text" style="width=80px" value="" label="用户名"/>
+	密码
+	<input name="pwd" type="password" style="width=80px" value="" label="密码" />
+    <input type="submit" value="登录" />
+</td>
+</form>

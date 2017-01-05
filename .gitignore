@@ -1,0 +1,4 @@
+*.class #ignore all the files which subffix with .class
+WebRoot/WEB-INF/classes/ #ignore all files in folder classes
+target
+
